@@ -34,7 +34,7 @@ export default (function () {
     app.post("/login", CorsMiddleware, LoginController);
 
     //Users
-    app.use("/api/users", CorsMiddleware, JwtVerifyApiMiddleware, apiUser);
+    app.use("/api/users", CorsMiddleware, apiUser);
 
     //Products
     app.use("/api/products", CorsMiddleware,/* JwtVerifyApiMiddleware,*/ apiProduct);

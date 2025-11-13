@@ -2,8 +2,6 @@ import { ListApi, ProductModel } from "@app/js/app.types";
 import { baseAxios } from "../axiosApi";
 import catchError from "../catchError";
 
-
-
 export default async function productListApi(limit = 15, orderBy = "id,desc") {
 
     const query = new URLSearchParams({

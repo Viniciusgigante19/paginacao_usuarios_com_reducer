@@ -1,3 +1,5 @@
+https://docs.google.com/forms/d/e/1FAIpQLSeHG984ZQ_55yDywWlbtZ8EMB9devGLJWyCGOriJmJu4-oHxw/viewform
+
 # Aula 11 - React: Estados globais (Reducers e Contextos) <a name="unifaat-frontend-project"></a>
 
 ## 📑 Sumário
@@ -106,7 +108,7 @@
    > Container (Docker Compose tradicional):
 
    ```sh
-   docker-compose run --rm nodecli-container seed
+docker-compose run --rm nodecli-container migrate
    ```
 
    > Container (Docker Compose moderno):
@@ -462,3 +464,4 @@ app-network
 | NGINX       | 80             | **8080**       | http://localhost:8080               |
 | PostgreSQL  | 5432           | **6789**       | usado por clients (beekeeper, dbeaver, ...)/ORM/CLI               |
 | Node Vite HMR    | 5173    | **5173** | http://localhost:5173  |
+

@@ -1,26 +1,28 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-import { ListApi, UserModel } from "@app/js/app.types";
+import { UserModel } from "@app/js/app.types";
+import userList from "@app/js/services/api/userListApi";
+import listOfUsersComponent from "@app/js/React/components/listOfUsersComponent/listOfUsersComponent";
+
+type UserListResponse = 
+  | { error: string }
+  | { rows: UserModel[] };
 
 export default function Users() {
+  const [user, setUser] = useState<UserModel[] | "error">();
 
-    const [data, setData] = useState<ListApi<UserModel>>();
+  const listUsers = async () => {
+    const resp = await userList(10) as UserListResponse;
+    if ("error" in resp) return setUser("error");
+    setUser(resp.rows);
+  };
 
-    useEffect(() => {
-        (async () => {
-            const { data } = await axios.get<ListApi<UserModel>>("http://localhost:8080/api/users");
+  useEffect(() => {
+    listUsers();
+  }, []);
 
-            setData(data);
-        })();
-    }, []);
-
-    return (
-        <ul>
-            {data && data.rows.map((userModel) => {
-                return (
-                    <li>{userModel.name}</li>
-                )
-            })}
-        </ul>
-    )
+  return (
+    <>
+      
+    </>
+  );
 }
