@@ -6,12 +6,13 @@ export type ApiResponse<T> = { success: true; data: T } | { success: false; erro
 
 export default async function userListApi(
   limit = 10,
+  offset = 0,
   orderBy = "id,desc"
 ): Promise<ApiResponse<ListApi<UserModel>>> {
   try {
     const { data } = await axios.get<ListApi<UserModel>>(
       "http://localhost:8080/api/users",
-      { params: { limit, orderBy } }
+      { params: { limit, orderBy, offset } }
     );
 
     return { success: true, data };

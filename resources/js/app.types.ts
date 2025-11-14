@@ -14,6 +14,14 @@ export type UserModel = {
     created_at: Date;
     updated_at: Date;
 };
+export type UserListApiResponse = {
+    rows: UserModel[];
+    count: number;
+    limit: number;
+    next: number | null;
+    page: number;
+    totalPages: number;
+};
 
 export type ProductModel = {
     id: number;
